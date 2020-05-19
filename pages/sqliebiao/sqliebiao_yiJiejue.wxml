@@ -1,0 +1,60 @@
+<view class="tiandan">
+  <app-info shenQinginfo="{{shenQinginfo}}" content="content" text="tiandan-text-big_way"></app-info>
+  <view class="method">
+    <view class="content">
+      <text class="tiandan-text-big_way" wx:if="{{curStatus == 1}}" style="font-size:28rpx">当前状态：未认领</text>
+      <text class="tiandan-text-big_way" wx:elif="{{curStatus == 2}}" style="font-size:28rpx">当前状态：已认领</text>
+      <text class="tiandan-text-big_way" wx:elif="{{curStatus == 3}}" style="font-size:28rpx">当前状态：处理中</text>
+      <text class="tiandan-text-big_way" wx:else style="font-size:28rpx">当前状态：已解决</text>
+    </view>
+  </view>
+  <view class="method">
+    <record curStatus="{{curStatus}}" appraise="{{appraise}}" reply_list="{{reply_list}}" shenQinginfo="{{shenQinginfo}}" />
+  </view>
+  <block wx:if="{{curStatus == 3}}">
+    <view class="method">
+      
+      <view class="content"> {{ReplyStar}}请您对请您对解决方案确认</view>
+      <span style="margin-left:50rpx;">
+        <radio-group name="wx">
+          <radio color="#f8c800" data-ty="2" class="{{deID==2?'selecte':'normale'}}" bindtap="w_x" value="wenti" checked="true">已解决</radio>
+          <radio color="#f8c800" data-ty="1" class="{{deID==1?'selecte':'normale'}}" bindtap="w_x" value="xuqiu">还未解决</radio>
+        </radio-group>
+      </span>
+
+      <view class="wenti" wx:if="{{deID==1}}">
+        <view class="a-wei">
+          <span style="color:##f8c800；"> | </span> 请您填写未解决原因</view>
+        <textarea class="dissatisfied" bindconfirm="confirm" bindblur="blur"></textarea>
+        <button class='assess-submint' bindtap="submit">提交评价</button>
+      </view>
+
+      <view class="wenti" wx:if="{{deID==2}}">
+        <!-- -----------------------------点亮星星-------------------- -->
+        <view>
+          <view class='assess-pages'>
+            <view class='assess-body'>
+              <view class='assess-title'>您对本次的IT服务满意吗？</view>
+              <view class='assess-star'>
+                <view class='star-wrap'>
+                  <view class='star-item' wx:for="{{stars}}" wx:key="index" style='background:url("{{item.flag==1?item.lightImg:item.blackImg}}") no-repeat top;background-size:100%;' data-index="{{index}}" bindtap='starClick'></view>
+                </view>
+                <view class='star-desc'>{{starDesc}}</view>
+              </view>
+              <!-- <view class='assess-list'>
+							<view class='item-assess' wx:for="{{assessLists}}" wx:key="">{{item}}</view>
+							</view> -->
+              <textarea maxlength="-1" placeholder='请您对本次IT服务进行评价' placeholder-class='place-assess' bindblur="reBlur" bindconfirm="reConfirm"></textarea>
+            </view>
+            <button class='assess-submint' bindtap="reSubmit">提交评价</button>
+          </view>
+        </view>
+        <!-- -----------------------------点亮星星 end-------------------- -->
+
+      </view>
+
+    </view>
+  </block>
+
+
+</view>

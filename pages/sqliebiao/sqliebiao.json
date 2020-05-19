@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#f8c800",
+  "navigationBarTitleText": "申请单详情",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh":true
+}

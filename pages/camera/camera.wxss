@@ -1,0 +1,8 @@
+
+button{
+width: 60rpx;
+height: 30rpx;
+line-height: 30rpx;
+text-align: center;
+background-color: #f8c800;
+}

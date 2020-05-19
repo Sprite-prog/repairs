@@ -1,0 +1,50 @@
+/* component/app-info/app-info.wxss */
+
+.tiandan-box {
+  width: 630rpx;
+  margin: 0 auto;
+  
+  background-color: white;
+}
+.method{
+  width: 630rpx;
+  margin: 0 auto;
+  border-bottom: 4rpx solid #e9e8e8;
+  padding-top: 28rpx;
+  padding-bottom: 28rpx;
+}
+
+
+.content{
+  width: 600rpx;
+  margin: 15rpx 2rpx 15rpx;
+  border-left: 4rpx solid #f8c800;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tiandan-text-big_way {
+  font-size: 24rpx;
+  color: #000;
+  padding-left: 11rpx;
+}
+.info {
+  border: none;
+}
+.big{
+  font-size:28rpx;
+}
+.textarea{
+  margin: 0 auto;
+}
+.add{
+  width: 100rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.add text{
+  font-size: 100rpx;
+}

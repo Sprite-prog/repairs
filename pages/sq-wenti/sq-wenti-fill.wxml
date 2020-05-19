@@ -1,0 +1,57 @@
+<form bindsubmit="formSubmit">
+	<view class="tiandan">
+		<view class="curstatus-box" wx:if="{{shenQinginfo.CurStatus==2}}">
+			<view style="display:flex;flex-direction:row;">
+				<text class="line">|</text>
+				<view style="margin-left:18rpx;">您的申请单正在被IT部 <span style="font-weight:500;font-size:36rpx;">{{shenQinginfo.ChineseName}}</span> 解决中</view>
+			</view>
+		</view>
+		<view class="tiandan-box">
+			<view>
+				<text class="line">|</text>
+				<text class="tiandan-text-big">Application information/申请信息</text>
+			</view>
+			<view class="info">
+				<text style="margin-top:10rpx">Requester / 申请人：{{shenQinginfo.UserName}}</text>
+			</view>
+			<view class="info">
+				<text style="margin-top:10rpx">Phone/电话：{{shenQinginfo.Tel}}</text>
+			</view>
+			<!--中间的灰色分割线 -->
+			<view class="line-hui"></view>
+			<view>
+				<text class="line">|</text>
+				<text class="tiandan-text-big">IT Service Information / IT服务信息</text>
+			</view>
+			<view class="weui-form-preview__value">
+				<view class="picker">
+					申请详情：--{{shenQinginfo.ReqTypeName}}--
+					<!-- //指定数组中指定下标的name键对应的值  -->
+				</view>
+			</view>
+			<!--中间的灰色分割线 -->
+			<view class="line-hui"></view>
+			<view>
+				<text class="line">|</text>
+				<text class="tiandan-text-big">Attachments / 附件</text>
+			</view>
+			<view style="margin-left:24rpx;color:#0000000;font-size:20rpx;display:flex;flex-direction:row;margin-top:16rpx;">
+				<text style="margin-top:11rpx;">附件：{{shenQinginfo.UploadFile}}</text>
+				<!-- <input name="fujian" placeholder="点击添加本地附件"></input> -->
+			</view>
+			<!--中间的灰色分割线 -->
+			<view class="line-hui"></view>
+			<!-------------- 其他信息 ------------------------------------------->
+			<view>
+				<text class="line">|</text>
+				<text class="tiandan-text-big">Problem Description / 问题描述</text>
+			</view>
+			<view style="margin-left:24rpx;color:#0000000;font-size:20rpx;display:flex;flex-direction:column;margin-top:16rpx;  " >
+	
+				<view class="pc_beizhu" style="margin-top:25rx;padding-right:30rpx;height:200rpx; background-color:#f1f1f1;">
+					<text style="width:500rpx; padding:30rpx 30rpx;">{{shenQinginfo.OtherRemark}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</form>

@@ -1,0 +1,22 @@
+
+<view class='main' style="{{'top:' + navigationBarHeight}}">
+	<view class="con">
+		<view class="sug-input">
+			<view class="transit-sug-click-hook">
+				<view class="transit-sug-search-icon">
+					<view class="transit-search-icon-img">
+						<icon type="search" size="20" />
+					</view>
+				</view>
+				<input placeholder="搜用户账号，查员工编号" bindinput="getUserInfo" value="" name="userName"/>
+
+			</view>
+			<scroll-view scroll-y="true" class="transit-sug-list">
+				<view wx:for="{{userList}}" wx:for-item="ct" class="transit-list-item" data-username="{{ct.LoginName}}" bindtap="bindChangeUser">
+					{{ct.ChineseName}}
+				</view>
+			</scroll-view>
+		</view>
+
+	</view>
+</view>

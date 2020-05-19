@@ -1,0 +1,228 @@
+/* pages/sq-wenti/sq-wenti.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  position: relative;
+}
+.select {
+  width: 32%;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #f8c800;
+  font-size: 28rpx;
+  border-bottom: 4rpx solid #f8c800;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+}
+.normal {
+  width: 32%;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #000;
+  font-size: 28rpx;
+  font-weight: 500;
+  letter-spacing: 2rpx;
+}
+.wenti-list {
+  width: 100%;
+  height: 100%;
+  background-color: #f1f1f1;
+  padding-top: 38rpx;
+}
+.wenti-list-one {
+  display: flex;
+  flex-direction: row;
+  width: 630rpx;
+  height: 90rpx;
+  border-radius: 8rpx;
+  background-color: #fff;
+  margin: 0 auto;
+  line-height: 90rpx;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  /* 两端对齐解决了箭头指向的问题 */
+}
+.wenti-text {
+  font-size: 28rpx;
+  margin-left: 24rpx;
+}
+.jiantou {
+  display: block;
+  font-size: 24rpx;
+  margin-right: 24rpx;
+}
+
+.tiandan {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 30rpx;
+  background-color: #f1f1f1;
+}
+
+.tiandan-box {
+  display: flex;
+  flex-direction: column;
+  width: 630rpx;
+  margin: 20rpx auto;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+/* 字前边的黄色竖线 */
+.line {
+  color: #f8c800;
+  font-size: 35rpx;
+  font-weight: bolder;
+}
+.tiandan-text-big {
+  font-size: 26rpx;
+  color: #000;
+  margin-left: 14rpx;
+  letter-spacing: 3rpx;
+}
+.info {
+  height: 24rpx;
+  display: flex;
+  flex-direction: row;
+  margin-left: 24rpx;
+  font-size: 22rpx;
+  color: #000;
+  letter-spacing: 3rpx;
+  margin-top: 24rpx;
+}
+.info input {
+  width: 380rpx;
+}
+.line-hui {
+  width: 630rpx;
+  height: 2rpx;
+  background-color: #e9e8e8;
+  margin-top: 36rpx;
+  margin-bottom: 40rpx;
+}
+.info-pc {
+  height: 24rpx;
+  display: flex;
+  flex-direction: row;
+  margin-left: 24rpx;
+  font-size: 22rpx;
+  color: #000;
+  letter-spacing: 3rpx;
+  margin-top: 24rpx;
+  justify-content: space-between;
+}
+.hidden-box {
+  margin-top: 10rpx;
+  width: 630rpx;
+  height: 164rpx;
+  background-color: #fafafa;
+  padding-top: 18rpx;
+  padding-bottom: 18rpx;
+}
+textarea {
+  width: 554rpx;
+  height: 200rpx;
+  background-color: #fafafa;
+  margin-top: 13rpx;
+  margin-bottom: 13rpx;
+  padding: 10rpx 13rpx;
+}
+.tiandanbtn {
+  display: flex;
+  width: 204rpx;
+  height: 68rpx;
+  margin: 0 auto;
+  margin-bottom: 40rpx;
+  margin-top: 40rpx;
+  background-color: #f1f1f1;
+  border-radius: 8rpx; 
+}
+
+button {
+  background-color: #f8c800;
+  width: auto;
+  color: #fff;
+  font-size: 26rpx;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.liebiao_scroll{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #f1f1f1;
+}
+.content {
+  height: 7.25rem;
+  display: flex;
+  font-size: 24rpx;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2.08rem;
+  line-height: 1.88rem;
+  margin-top: 1.41rem;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.created {
+  display: flex;
+  flex-direction: row;
+  font-size: 24rpx;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.fuwuleibie{
+  display: flex;
+  flex-direction: row;
+  margin-top: 18rpx;
+  font-size: 24rpx;
+  justify-content: space-between;
+
+}
+radio{
+  margin-left: 100rpx;
+  transform: scale(0.8)
+}
+
+ 
+
+ 
+ 
+ 
+/* radio选中时样式 */
+ 
+radio .wx-radio-input.wx-radio-input-checked{
+ 
+  background-color: #f8c800;
+ 
+  border: 1rpx solid  #f8c800;
+
+ 
+  /* 自定义样式.... */
+ 
+}
+.picker{
+  display: flex;
+  flex-direction: row;
+  margin-left: 40rpx;
+  font-size: 23rpx;
+  margin-top: 25rpx;
+}
+.picker_bg{
+  background-color: #f1f1f1;
+  margin-left: 6rpx;
+padding-right: 30rpx;
+}

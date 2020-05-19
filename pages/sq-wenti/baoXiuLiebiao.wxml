@@ -1,0 +1,14 @@
+<view class="main">
+	<navigator url="/pages/sq-wenti/sq-wenti?typeid=1&currentid=1" hover-class="none">
+		<view class="info-pc">
+			<text>PC Failure/PC报修</text>
+			<text style="margin-right:35rpx;color:#f8c800;"> > </text>
+		</view>
+	</navigator>
+	<navigator url="/pages/sq-wenti/sq-wenti?typeid=2&currentid=1" hover-class="none">
+		<view class="info-pc">
+			<text>Email Password Reset/邮箱密码重置</text>
+			<text style="margin-right:35rpx;color:#f8c800;"> > </text>
+		</view>
+	</navigator>
+</view>

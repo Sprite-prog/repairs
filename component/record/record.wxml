@@ -1,0 +1,28 @@
+<!--component/record/record.wxml-->
+<view class="content">
+  <text class="tiandan-text-big_way" style="font-size:28rpx">处理记录</text>
+  
+</view>
+<view  class="content">
+  <text class="tiandan-text-big_way">{{shenQinginfo.CreateDate}}:当前为未认领状态</text>
+  
+</view>
+<view  wx:if="{{curStatus > 1}}" class="content">
+  <text class="tiandan-text-big_way">{{shenQinginfo.AssignDate}}:问题已被IT部门的{{shenQinginfo.AssignChineseName}}认领</text>
+  
+</view>
+
+<block wx:for="{{reply_list}}" wx:key="index" wx:if="{{curStatus > 2}}">
+  <reply-list item="{{item}}" content="{{content}}" text="{{tiandan-text-big_way}}"/>
+</block>
+
+<block wx:if="{{curStatus == 4}}">
+  <view  class="content">
+    <text class="tiandan-text-big_way">{{appraise.CreateDate}}:{{shenQinginfo.UserName}}对其进行了评价</text>
+    
+  </view>
+  <view class="content">
+    <text class="tiandan-text-big_way">{{shenQinginfo.UserName}}的评分：{{appraise.ReplyStar}}分</text>
+    
+  </view>
+</block>
