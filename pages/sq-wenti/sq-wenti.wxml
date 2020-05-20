@@ -9,7 +9,7 @@
 <!-- 常见问题部分 -->
   <view class="wenti-list" wx:if="{{deptID==0}}">
     <scroll-view class="scroll" scroll-y="true" style="height:{{winHeight}}px;">
-      <block wx:for="{{10}}">
+      <block wx:for="{{10}}" wx:key="index">
         <faq />
       </block>
     </scroll-view>
