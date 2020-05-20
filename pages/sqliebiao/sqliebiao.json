@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "mp-icon": "../../miniprogram_npm/weui-miniprogram/icon/icon"
+  },
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#f8c800",
   "navigationBarTitleText": "申请单详情",

@@ -7,7 +7,7 @@
 	<form bindsubmit="formSubmit">
 		<!-- 未认领的单子列表 -->
 		<view class='weiJiejue' wx:if="{{deptID==1}}">
-			<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:1200rpx;" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh" bindscroll="scroll" refresher-enabled="{{true}}" refresher-threshold="{{100}}" lower-threshold="50" refresher-background="#fff" refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="refresh" bindrefresherrestore="restore">
+			<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:1200rpx;" class="list" bindscrolltolower="bindDownLoad"  bindscrolltoupper="refresh"  refresher-enabled="{{true}}" refresher-threshold="{{100}}" lower-threshold="50" refresher-background="#fff" refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="refresh" bindrefresherrestore="restore">
 				<view style="min-height:100%;">
 					<block wx:for="{{posts_key}}" wx:for-item="item" wx:key="viewid">
 						<view class="content" catchtap="onPostTap" data-id="{{item.ID}}">
@@ -19,7 +19,7 @@
 								</view>
 								<view class="created">
 									<text>申请人: <text style="margin-left:74rpx;">{{item.UserName}}</text> </text>
-									<text style="margin-right:28px;"> > </text>
+									 <mp-icon icon="arrow" size="{{12}}" style="margin-right:24rpx" />
 								</view>
 								<view>
 									<text>申请时间：<text style="margin-left:38rpx;">{{item.CreateDate}}</text> </text>
@@ -38,7 +38,7 @@
 		</view>
 		<!-- 已认领的单子列表 -->
 		<view class="yiJiejue" wx:if="{{deptID==2}}">
-			<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:1200rpx;" class="list" bindscrolltolower="bindDownLoadling" bindscroll="scroll" bindscrolltoupper="refreshyijiejue" refresher-enabled="{{true}}" refresher-threshold="{{100}}" lower-threshold="50" refresher-background="#fff" refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="refresh" bindrefresherrestore="restore">
+			<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:1200rpx;" class="list" bindscrolltolower="bindDownLoadling"  bindscrolltoupper="refreshyijiejue" refresher-enabled="{{true}}" refresher-threshold="{{100}}" lower-threshold="50" refresher-background="#fff" refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="refresh" bindrefresherrestore="restore">
 				<view style="min-height:100%;">
 					<block wx:for="{{posts_keyling}}" wx:for-item="item" wx:key="viewid">
 						<view class="content" >

@@ -37,28 +37,7 @@ page {
   background-color: #f1f1f1;
   padding-top: 38rpx;
 }
-.wenti-list-one {
-  display: flex;
-  flex-direction: row;
-  width: 630rpx;
-  height: 90rpx;
-  border-radius: 8rpx;
-  background-color: #fff;
-  margin: 0 auto;
-  line-height: 90rpx;
-  margin-bottom: 20px;
-  justify-content: space-between;
-  /* 两端对齐解决了箭头指向的问题 */
-}
-.wenti-text {
-  font-size: 28rpx;
-  margin-left: 24rpx;
-}
-.jiantou {
-  display: block;
-  font-size: 24rpx;
-  margin-right: 24rpx;
-}
+
 
 .tiandan {
   display: flex;

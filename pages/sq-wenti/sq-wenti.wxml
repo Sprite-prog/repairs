@@ -1,77 +1,33 @@
 <import src="wenti-template/wenti-template.wxml" />
-
 <view class="coninter">
+<!-- 顶部tab栏 -->
   <view class="nav">
     <view data-type="0" class="{{deptID==0?'select':'normal'}}" bindtap="showNews">常见问题</view>
     <view data-type="1" class="{{deptID==1?'select':'normal'}}" bindtap="showNews">在线服务填单</view>
     <view data-type="2" class="{{deptID==2?'select':'normal'}}" bindtap="showNews">我的申请列表</view>
   </view>
-  <!-- <swiper current="{{currentTab}}" style="height:{{winHeight}}px"> -->
-  <!-- 常见问题详情部分 -->
-  <!-- <swiper-item catchtouchmove="stopTouchMove"> -->
+<!-- 常见问题部分 -->
   <view class="wenti-list" wx:if="{{deptID==0}}">
-    <scroll-view class="scroll" scroll-y="true" bindscrolltolower="onBindscrolltolower" style="height:{{winHeight}}px;">
-      <view class="wenti-list-one">
-        <text class="wenti-text">常见问题一常见问题一？</text>
-        <text class="jiantou"> > </text>
-      </view>
-      <view class="wenti-list-one">
-        <text class="wenti-text">常见问题一常见问题一？</text>
-        <text class="jiantou"> > </text>
-      </view>
-      <view class="wenti-list-one">
-        <text class="wenti-text">常见问题一常见问题一？</text>
-        <text class="jiantou"> > </text>
-      </view>
-      <view class="wenti-list-one">
-        <text class="wenti-text">常见问题一常见问题一？</text>
-        <text class="jiantou"> > </text>
-      </view>
-      <view class="wenti-list-one">
-        <text class="wenti-text">常见问题一常见问题一？</text>
-        <text class="jiantou"> > </text>
-      </view>
-      <view class="wenti-list-one">
-        <text class="wenti-text">常见问题一常见问题一？</text>
-        <text class="jiantou"> > </text>
-      </view>
-      <view class="wenti-list-one">
-        <text class="wenti-text">常见问题一常见问题问题问题为南京一？</text>
-        <text class="jiantou"> > </text>
-      </view>
-      <view class="wenti-list-one">
-        <text class="wenti-text">常见问题一常见问题一？</text>
-        <text class="jiantou"> > </text>
-      </view>
-      <view class="wenti-list-one">
-        <text class="wenti-text">常见问题一常见问题一？</text>
-        <text class="jiantou"> > </text>
-      </view>
-      <view class="wenti-list-one">
-        <text class="wenti-text">常见问题一常见问题一？</text>
-        <text class="jiantou"> > </text>
-      </view>
-
+    <scroll-view class="scroll" scroll-y="true" style="height:{{winHeight}}px;">
+      <block wx:for="{{10}}">
+        <faq />
+      </block>
     </scroll-view>
   </view>
-  <!-- </swiper-item> -->
-  <!-- 在线服务填单详情部分 -->
-  <!-- <swiper-item catchtouchmove="stopTouchMove"> -->
+<!-- 在线服务填单 -->
   <view class="tiandan" wx:if="{{deptID==1}}">
-    <scroll-view class="scroll" scroll-y="true" bindscrolltolower="onBindscrolltolower" style="height:{{winHeight}}px;">
+    <scroll-view class="scroll" scroll-y="true"  style="height:{{winHeight}}px;">
       <form bindsubmit="formSubmit">
-        <app-info shenQinginfo="{{shenQinginfo}}" pic_array="{{pic_array}}" bind:picker="picker" bind:intro="intro"/>
-        <!-- 接下来是在线申请填单footer部分提交按钮 -->
-        <!-- <navigator url="/pages/sq-wenti/sq-wenti?currentid=2" hover-class="none"> -->
+        <app-info shenQinginfo="{{shenQinginfo}}" pic_array="{{pic_array}}" bind:picker="picker" bind:intro="intro" />
         <view class="tiandanbtn">
-          <button form-type="submit"><text>提交</text></button>
-          <!-- 提交按钮我用的是submit提交 -->
+          <button form-type="submit">
+            <text>提交</text>
+          </button>
         </view>
-        <!-- </navigator> -->
       </form>
-
     </scroll-view>
   </view>
+<!-- 我的申请列表 -->
   <view wx:if="{{deptID==2}}" class="liebiao_scroll">
     <scroll-view scroll-y="true" scroll-x="false" style="height:{{scrollHeight}}px" bindscrolltolower="loadMore" lower-threshold="800" enable-flex="true">
       <view>

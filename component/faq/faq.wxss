@@ -1,0 +1,29 @@
+/* component/faq/faq.wxss */
+.wenti-list-one {
+  display: flex;
+  flex-direction: row;
+  width: 630rpx;
+  border-radius: 8rpx;
+  background-color: #fff;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  /* 两端对齐解决了箭头指向的问题 */
+}
+.question{
+  width: 550rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 25rpx;
+}
+.wenti-text {
+  font-size: 28rpx;
+}
+.arrow-box {
+  width: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 25rpx;
+}

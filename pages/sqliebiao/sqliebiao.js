@@ -111,7 +111,7 @@ Page({
           }
           else {
             that.setData({
-              posts_key: []
+              posts_keyling: []
             });
           }
         };
@@ -176,10 +176,11 @@ Page({
   onLoad: function(options) { 
     this.showlist(1,-1);
     this.showlistling(1,-1)
-    var type = options.typeid;
-    this.setData({
-      deptID: options.typeid
-    });
+    // var type = options.typeid;
+    // this.setData({
+    //   deptID: options.typeid
+    // });
+    // console.log(options);
   },
   refresh:function() {
     wx.showLoading({
@@ -340,9 +341,4 @@ Page({
      
     
   },
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-  }
 })

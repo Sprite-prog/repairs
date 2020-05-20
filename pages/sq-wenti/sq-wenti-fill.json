@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "app-info": "../../component/app-info/app-info"
+  },
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#f8c800",
   "navigationBarTitleText": "申请单详情",

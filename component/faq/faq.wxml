@@ -1,0 +1,9 @@
+<!--component/faq/faq.wxml-->
+<view class="wenti-list-one">
+  <view class="question">
+    <text class="wenti-text">常见问题一常见问题一常见问题一常见问题一常见问题一常见问题一常见问题一常见问题一常见问题一？</text>
+  </view>
+  <view class="arrow-box">
+    <mp-icon icon="arrow" size="{{12}}" />
+  </view>
+</view>

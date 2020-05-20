@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "app-info": "../../component/app-info/app-info"
+    "app-info": "../../component/app-info/app-info",
+    "faq": "../../component/faq/faq"
   },
   "navigationBarBackgroundColor": "#f8c800",
   "navigationBarTitleText": "申请单详情",
