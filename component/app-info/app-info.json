@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mp-uploader": "../../miniprogram_npm/weui-miniprogram/uploader/uploader",
+    "uploader":"../uploader/uploader"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/sq-wenti/sq-wenti",
+    "pages/admin/admin",
+    "pages/admin-confirm/admin-confirm",
+    
+    "pages/sqliebiao/sqliebiao_yijiejue_detail",
+    "pages/sqliebiao/sqliebiao",
+    "pages/sqliebiao/sqliebiao_weiJiejue",
+    "pages/sqliebiao/sqliebiao_yiJiejue",
+    "pages/sq-wenti/sq-wenti-fill",
+    "pages/camera/camera",
+    "pages/admin/admin-fenpei",
+    "pages/admin/admin-sousuo",
+    "pages/sq-wenti/baoXiuLiebiao",
+    "pages/shuaXin/shuaXin",
+    "pages/sqtiandan/sqtiandan",
+    "pages/baoCunimg/baoCunimg"
+    
+
+  
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#f8c800",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

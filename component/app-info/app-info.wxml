@@ -1,0 +1,66 @@
+<!--component/app-info/app-info.wxml-->
+<view class="tiandan-box">
+  <view class="method">
+    <view class="content">
+      <text class="tiandan-text-big_way big">Application information/申请信息</text>
+    </view>
+    <view class="content info">
+      <text class="tiandan-text-big_way">Requester / 申请人：{{shenQinginfo.UserName}}</text>
+    </view>
+    <view class="content info">
+      <text class="tiandan-text-big_way">Phone/电话：{{shenQinginfo.Tel}}</text>
+    </view>
+  </view>
+  <view class="method">
+    <view class="content">
+      <text class="tiandan-text-big_way big">IT Service Information / IT服务信息</text>
+    </view>
+    <block wx:if="{{shenQinginfo.ReqTypeName != ''}}">
+      <view class="content info">
+        <text class="tiandan-text-big_way">申请类别：{{shenQinginfo.ReqTypeName}}</text>
+      </view>
+    </block>
+    <block wx:else>
+      
+        <picker name="picker_hx" class="cybm_pic_1" value="{{pic_array[hx_index].ID}}" data-selecthx="{{pic_array[hx_index].Title}}" range="{{pic_array}}" range-key="{{'Title'}}" bindchange="bindPickerChange" name='reqType'>
+          <view class="picker content info" wx:if="{{isShow == false}}">
+            <text class="tiandan-text-big_way">请选择您将申请的问题</text>
+          </view>
+          <view class="picker content info" wx:else>
+            <text class="tiandan-text-big_way">{{pic_array[hx_index].Title}}</text>
+          </view>
+        </picker>
+      
+    </block>
+  </view>
+  <view class="method">
+    <view class="content">
+      <text class="tiandan-text-big_way big">Attachments / 附件</text>
+    </view>
+    <block wx:if="{{shenQinginfo.UploadFile == ''}}" >
+    <view></view>
+    </block>
+    <block wx:else>
+    <view class="content info">
+      <!-- <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="5" title="图片上传" tips="图片上传提示" /> -->
+      <uploader />
+    </view>
+    
+    </block>
+  </view>
+  <view class="method">
+    <view class="content">
+      <text class="tiandan-text-big_way big">Problem Description / 问题描述</text>
+    </view>
+    <block wx:if="{{shenQinginfo.OtherRemark != ''}}">
+      <view class="content info">
+        <text class="tiandan-text-big_way">{{shenQinginfo.OtherRemark}}</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="content info textarea">
+        <textarea name="othernew" class="tiandan-text-big_way" placeholder="请输入问题描述" placeholder-style="font-size:24rpx" bindconfirm="input" bindblur="blur"></textarea>
+      </view>
+    </block>
+  </view>
+</view>

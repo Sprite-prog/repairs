@@ -1,0 +1,24 @@
+<template name="postItem">
+  <view class="content" catchtap="onPostTap" data-id="{{ID}}" data-curstatus="{{CurStatus}}">
+    <view>
+      <text>申请服务信息：<text style="margin-left:10rpx;">{{ReqTypeName}}</text></text>
+ 
+    </view>
+    <view class="created">
+      <text>报修时间：<text style="margin-left:50rpx;">{{CreateDate}}</text></text>
+      <text style="margin-right:14rpx;"> > </text>
+    </view>
+    <view>
+      <text wx:if="{{CurStatus == 1}}">解决状态: <text style="margin-left:60rpx;">未认领</text></text>
+      <text wx:if="{{CurStatus == 2}}">解决状态: <text style="margin-left:60rpx;">处理中</text></text>
+      <text wx:if="{{CurStatus == 3}}">解决状态: <text style="margin-left:60rpx;">待确认</text></text>
+      <text wx:if="{{CurStatus == 4}}">解决状态: <text style="margin-left:60rpx;">已解决</text></text>
+    </view>
+     <view>
+     <view wx:if="{{CurStatus == 1}}">
+     </view>
+    <view wx:else><text>解决人: <text style="margin-left:87rpx;">{{AssignChineseName}}</text></text></view>
+  
+    </view>
+  </view>
+</template>

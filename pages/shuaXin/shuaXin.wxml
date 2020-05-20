@@ -1,0 +1,159 @@
+<view class="con">
+  <!-- 头部页签 -->
+  <view class="header">
+    <view class="{{shenpi?'active':''}}" catchtap='shenpi'>未解决单子列表</view>
+    <view class="{{shenpi?'':'active'}}" catchtap='over'>已解决单子列表</view>
+  </view>
+  <view class='weiJiejue' wx:if="{{shenpi}}">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{winHeight}}px" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+  <block wx:for="{{list}}" wx:for-item="item">
+
+    <view class="content" bindtap="goweiJiejue">
+      <view>
+        <!-- <text>Refrence  No./标题：CAP20191114</text> -->
+        <text>报修单：</text>
+        <text>{{item.biaoti}}</text>
+      </view>
+      <view class="created">
+        <!-- <text>Created By/时间： Hai DanXXXXX</text> -->
+        <text>{{item.time}}</text>
+        <text style="margin-right:14rpx;"> > </text>
+      </view>
+      <view>
+        <!-- <text>解决状态</text> -->
+        <text>{{item.state}}</text>
+      </view>
+    </view>
+</block>
+</scroll-view>
+<!-- </scroll-view> -->
+ <!-- <view class="body-view">
+        <loading hidden="{{hidden}}" bindchange="loadingChange">
+            加载中...
+        </loading>
+  </view> -->
+
+ 
+    <!-- <view class="content" bindtap="noprocessed">
+      <view>
+        <text>Refrence  No./标题：CAP20191114</text>
+      </view>
+      <view class="created">
+        <text>Created By/时间： Hai DanXXXXX</text>
+        <text style="margin-right:14rpx;"> > </text>
+      </view>
+      <view>
+        <text>解决状态</text>
+      </view>
+    </view> -->
+   
+    <!-- <view class="content" bindtap="noprocessed">
+      <view>
+        <text>Refrence  No./标题：CAP20191114</text>
+      </view>
+      <view class="created">
+        <text>Created By/时间： Hai DanXXXXX</text>
+        <text style="margin-right:14rpx;"> > </text>
+      </view>
+      <view>
+        <text>解决状态</text>
+      </view>
+    </view> -->
+    
+  </view>
+
+
+<!-- 已经解决的单子列表 -->
+  <view class="yiJiejue" wx:else>
+     <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:1080rpx;" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+    <view class="content" bindtap="goJiejue_1">
+      <view>
+        <text>Refrence  No./标题ti：CAP20191114</text>
+      </view>
+      <view class="created">
+        <text>Created By/时间： Hai DanXXXXX</text>
+        <text style="margin-right:14rpx;"> > </text>
+      </view>
+      <view>
+        <text>解决状态</text>
+      </view>
+    </view>
+
+    <view class="content" bindtap="noprocessed">
+      <view>
+        <text>Refrence  No./标题：CAP20191114</text>
+      </view>
+      <view class="created">
+        <text>Created By/时间： Hai DanXXXXX</text>
+        <text style="margin-right:14rpx;"> > </text>
+      </view>
+      <view>
+        <text>解决状态</text>
+      </view>
+    </view>
+    <view class="content" bindtap="noprocessed">
+      <view>
+        <text>Refrence  No./标题：CAP20191114</text>
+      </view>
+      <view class="created">
+        <text>Created By/时间： Hai DanXXXXX</text>
+        <text style="margin-right:14rpx;"> > </text>
+      </view>
+      <view>
+        <text>解决状态</text>
+      </view>
+    </view>
+<view class="content" bindtap="noprocessed">
+      <view>
+        <text>Refrence  No./标题ti：CAP20191114</text>
+      </view>
+      <view class="created">
+        <text>Created By/时间： Hai DanXXXXX</text>
+        <text style="margin-right:14rpx;"> > </text>
+      </view>
+      <view>
+        <text>解决状态</text>
+      </view>
+    </view>
+    <view class="content" bindtap="noprocessed">
+      <view>
+        <text>Refrence  No./标题ti：CAP20191114</text>
+      </view>
+      <view class="created">
+        <text>Created By/时间： Hai DanXXXXX</text>
+        <text style="margin-right:14rpx;"> > </text>
+      </view>
+      <view>
+        <text>解决状态</text>
+      </view>
+    </view>
+    <view class="content" bindtap="noprocessed">
+      <view>
+        <text>Refrence  No./标题ti：CAP20191114</text>
+      </view>
+      <view class="created">
+        <text>Created By/时间： Hai DanXXXXX</text>
+        <text style="margin-right:14rpx;"> > </text>
+      </view>
+      <view>
+        <text>解决状态</text>
+      </view>
+    </view>
+    <view class="content" bindtap="noprocessed">
+      <view>
+        <text>Refrence  No./标题ti：CAP20191114</text>
+      </view>
+      <view class="created">
+        <text>Created By/时间： Hai DanXXXXX</text>
+        <text style="margin-right:14rpx;"> > </text>
+      </view>
+      <view>
+        <text>解决状态</text>
+      </view>
+    </view>
+</scroll-view>
+  </view>
+
+
+
+</view>

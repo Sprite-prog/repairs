@@ -1,0 +1,37 @@
+<form bindsubmit="formSubmit">
+  <view class="tiandan">
+    <app-info shenQinginfo="{{shenQinginfo}}"></app-info>
+    <view class="method">
+      <view class="content">
+        
+        <text class="tiandan-text-big" wx:if="{{curStatus == 1}}">当前状态：未认领</text>
+        <text class="tiandan-text-big" wx:elif="{{curStatus == 2}}">当前状态：已认领</text>
+        <text class="tiandan-text-big" wx:elif="{{curStatus == 3}}">当前状态：待确认</text>
+        <text class="tiandan-text-big" wx:else>当前状态：已解决</text>
+      </view>
+    </view>
+  </view>
+  <view class="method">
+    <record curStatus="{{curStatus}}" appraise="{{appraise}}" reply_list="{{reply_list}}" shenQinginfo="{{shenQinginfo}}" />
+  </view>
+  <block wx:if="{{curStatus != 4}}">
+  <form bindsubmit="formSubmit">
+    <view class="method">
+      <view class="content">
+        
+        <text class="tiandan-text-big_way">请您填写解决方案：</text>
+        <view style="margin-left:20rpx;">
+          <textarea name="ReplyComment" bindblur="bindTextAreaBlur" placeholder="此处填写具体解决方案" value="{{ReplyComment}}" style="height:100rpx;" placeholder-style="margin-top:18rpx;font-size:24rpx;"></textarea>
+        </view>
+      </view>
+    </view>
+    <!-- 接下来是在线申请填单footer部分提交按钮 -->
+    <view class="tiandanbtn">
+      <button form-type="submit" bindtap="gotijiao" size="mini"><text>提交</text></button>
+    </view>
+
+  </form>
+  </block>
+  
+
+</form>

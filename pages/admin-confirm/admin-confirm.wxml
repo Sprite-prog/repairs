@@ -1,0 +1,71 @@
+<form bindsubmit="formSubmit">
+	<view class="tiandan">
+		<view class="method">
+			<view style="display:flex; flex-direction:row;">
+				<text class="line_way">|</text>
+				<text class="tiandan-text-big_way">{{shenQinginfo.ChineseName}} 解决的方案如下：</text>
+			</view>
+			<view class="method_text">{{shenQinginfo.OtherRemark}}百度百度百度百度</view>
+
+			<view class="sq_name"> <span style="color:#f8c800;">></span>{{shenQinginfo.userName}}李新乐: <span style="font-size:18rpx;">{{shenQinginfo.CreateDate}}2020.05.14</span></view>
+			<view class="sq_1">{{shenQinginfo.OtherRemark}}哈哈哈哈啊哈哈</view>
+
+
+			<view class="sq_name"> <span style="color:#f8c800;">></span>{{shenQinginfo.approver}}刘伟红: <span style="font-size:18rpx;">{{shenQinginfo.CreateDate}}2020/05/01 8:45:20</span></view>
+			<view class="sq_1">{{shenQinginfo.ReplyComment}}呵呵呵呵呵呵呵呵呵</view>
+			<view style="display:flex; flex-direction:row;">
+				<text class="line_way">|</text> <text class="tiandan-text-big_way">解决状态： <text>待确认</text> </text>
+			</view>
+			<view style="display:flex; flex-direction:row;">
+				<text class="line_way">|</text> <text class="tiandan-text-big_way">用户对您的打分： <text>99分</text> </text>
+			</view>
+		</view>
+		<view class="tiandan-box">
+			<view>
+				<text class="line">|</text>
+				<text class="tiandan-text-big">Application information/申请信息</text>
+			</view>
+			<view class="info">
+				<text>Requester / 申请人：</text>
+				<text>{{shenQinginfo.UserName}}</text>
+			</view>
+			<view class="info">
+				<text>Phone/电话：</text>
+				<text>{{shenQinginfo.Tel}}</text>
+			</view>
+
+			<!--中间的灰色分割线 -->
+			<view class="line-hui"></view>
+			<view>
+				<text class="line">|</text>
+				<text class="tiandan-text-big">IT Service Information / IT服务信息</text>
+			</view>
+			<view class="picker" style="margin-left:30rpx;font-size:24rpx;margin-top:20rpx;">
+				申请详情：--{{shenQinginfo.ReqTypeName}}--
+			</view>
+			<!--中间的灰色分割线 -->
+			<view class="line-hui"></view>
+			<view>
+				<text class="line">|</text>
+				<text class="tiandan-text-big">Attachments / 附件</text>
+			</view>
+			<view style="margin-left:24rpx;color:#0000000;font-size:16rpx;display:flex;flex-direction:row;margin-top:16rpx;">
+				<text style="margin-top:9rpx;">附件：</text>
+				<text style="margin-top:9rpx;" name="fujian" bindtap="gobaoCunimg">点击添加附件信息</text>
+			</view>
+
+			<!--中间的灰色分割线 -->
+			<view class="line-hui"></view>
+			<!-- 其他信息 -->
+			<view>
+				<text class="line">|</text>
+				<text class="tiandan-text-big">Problem Description / 问题描述</text>
+			</view>
+			<view style="margin-left:24rpx;color:#0000000;font-size:16rpx;display:flex;flex-direction:column;margin-top:16rpx;">
+
+			
+				<text class="beizhu-a">{{shenQinginfo.ReplyComment}}</text>
+			</view>
+		</view>
+	</view>
+</form>

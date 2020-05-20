@@ -1,0 +1,16 @@
+/* component/record/record.wxss */
+.content{
+  width: 600rpx;
+  margin: 15rpx 2rpx 15rpx;
+  border-left: 4rpx solid #f8c800;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tiandan-text-big_way {
+  font-size: 24rpx;
+  color: #000;
+  padding-left: 11rpx;
+}
+

@@ -1,0 +1,27 @@
+/* component/reply-list/reply-list.wxss */
+.line {
+  color: #f8c800;
+  font-size: 35rpx;
+  font-weight: bolder;
+}
+.line_way {
+  color: #f8c800;
+  font-size: 35rpx;
+  font-weight: bolder;
+}
+.tiandan-text-big {
+  font-size: 24rpx;
+  color: #000;
+  padding-left: 14rpx;
+  letter-spacing: 3rpx;
+}
+.tiandan-text-big_way {
+  font-size: 24rpx;
+  color: #000;
+  padding-left: 14rpx;
+  letter-spacing: 3rpx;
+  margin-top: 6rpx;
+}
+.content{
+  margin-top: 20rpx;
+}

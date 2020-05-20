@@ -1,0 +1,138 @@
+/* pages/sqliebiao/sqliebiao_weiJiejue.wxss *//* pages/it-fanAn/it-fanAn.wxss */
+page{
+
+  background-color: #f1f1f1;
+}
+.tiandan {
+  width: 100%;
+  padding-top: 38rpx;
+ 
+}
+
+.tiandan-box {
+  display: flex;
+  flex-direction: column;
+  width: 630rpx;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 40rpx 0;
+}
+
+/* 字前边的黄色竖线 */
+
+.line {
+  color: #f8c800;
+  font-size: 35rpx;
+  font-weight: bolder;
+}
+
+.tiandan-text-big {
+  font-size: 28rpx;
+  color: #000;
+  margin-left: 14rpx;
+  letter-spacing: 3rpx;
+}
+
+.info {
+  height: 24rpx;
+  display: flex;
+  flex-dirextion: row;
+  margin-left: 24rpx;
+  font-size: 22rpx;
+  color: #000;
+  letter-spacing: 3rpx;
+  margin-top: 24rpx;
+}
+
+.info input {
+  width: 380rpx;
+}
+
+.line-hui {
+  width: 630rpx;
+  height: 2rpx;
+  background-color: #e9e8e8;
+  margin-top: 36rpx;
+  margin-bottom: 40rpx;
+}
+
+.info-pc {
+  height: 24rpx;
+  display: flex;
+  flex-dirextion: row;
+  margin-left: 24rpx;
+  font-size: 22rpx;
+  color: #000;
+  letter-spacing: 3rpx;
+  margin-top: 24rpx;
+  justify-content: space-between;
+}
+
+.hidden-box {
+  margin-top: 10rpx;
+  width: 630rpx;
+  height: 164rpx;
+  background-color: #fafafa;
+  padding-top: 20rpx;
+  /* padding-bottom: 18rpx; */
+}
+
+textarea {
+  width: 568rpx;
+  height:117rpx;
+  background-color: #fafafa;
+  overflow-x: hidden;
+   overflow-y: auto;
+  margin-top: 18rpx;
+  margin-bottom: 8rpx;
+
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  maxlength: -1;
+}
+
+.tiandanbtn {
+  display: flex;
+  width: 180rpx;
+
+  margin: 50rpx auto;
+  background-color: #f8c800;
+  border-radius: 8rpx;
+}
+
+button {
+  width: 180rpx;
+  padding:0;
+  background-color: #f8c800;
+  color: #fff;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.method {
+  display: flex;
+  flex-direction: column;
+  width: 630rpx;
+  
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 40rpx 0;
+ margin: 14rpx auto;
+ font-size: 22rpx;
+}
+.content{
+  width: 600rpx;
+  margin: 15rpx 2rpx 15rpx;
+  border-left: 4rpx solid #f8c800;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tiandan-text-big_way {
+  font-size: 24rpx;
+  color: #000;
+  padding-left: 11rpx;
+}

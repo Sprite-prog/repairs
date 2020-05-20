@@ -1,0 +1,36 @@
+<!--component/uploader/uploader.wxml-->
+<view class="weui-uploader__bd">
+  <view class="weui-uploader__files" id="uploaderFiles">
+    <block wx:for="{{files}}" wx:key="*this">
+      <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}" data-index="{{index}}">
+        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+      </view>
+    </block>
+    <!-- <view class="weui-uploader__file">
+      <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />
+    </view>
+    <view class="weui-uploader__file">
+      <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />
+    </view>
+    <view class="weui-uploader__file weui-uploader__file_status">
+      <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />
+      <view class="weui-uploader__file-content">
+        <view class="weui-loading"></view>
+      </view>
+    </view>
+    <view class="weui-uploader__file weui-uploader__file_status">
+      <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />
+      <view class="weui-uploader__file-content">
+        <icon type="warn" size="23" color="#F43530"></icon>
+      </view>
+    </view>
+    <view class="weui-uploader__file weui-uploader__file_status">
+      <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />
+      <view class="weui-uploader__file-content">50%</view>
+    </view> -->
+  </view>
+  <view class="weui-uploader__input-box">
+    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+  </view>
+  <mp-gallery show="{{show}}" imgUrls="{{files}}" current="{{current}}" delete binddelete="delete"/>
+</view>

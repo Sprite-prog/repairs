@@ -1,0 +1,27 @@
+<view class="main">
+	<navigator url="../admin/admin-sousuo" hover-class="none">
+		<view class="info-pc">
+			<view class="created">
+				<text>申请人: Lucy</text>
+			</view>
+			<text wx:if="{{item.ReqType == 1}}">服务信息类别：问题（问题一问题一）</text>
+			<text wx:else>服务信息类别：需求（需求一需求一）</text>
+			<view>
+				<text>申请时间：</text>
+			</view>
+			<view>
+			
+        <view class="weui-form-preview__value" bindtap="selectUserName">
+        	<text>分配认领人：</text>
+						<input class="weui-input" placeholder="点击选择" name="txtTransferUserName" value="{{selectedUserName}}" disabled="true" />
+					</view>
+			</view>
+		</view>
+	</navigator>
+	<navigator url="../admin/admin?currentid=2" hover-class="none">
+		<view class="info-pc">
+			<text>曹艳娇</text>
+			<text style="margin-right:35rpx;color:#f8c800;"> > </text>
+		</view>
+	</navigator>
+</view>

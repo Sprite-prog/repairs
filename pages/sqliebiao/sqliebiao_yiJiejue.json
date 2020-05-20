@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "app-info":"../../component/app-info/app-info",
+    "record":"../../component/record/record"
+  }
+}

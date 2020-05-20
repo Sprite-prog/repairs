@@ -1,0 +1,82 @@
+<view class="con">
+	<!-- 头部页签 -->
+	<view class="header">
+		<view data-type="1" class="{{deptID==1?'active':'no'}}" catchtap='shenpidan'>未认领单子列表</view>
+		<view data-type="2" class="{{deptID==2?'active':'no'}}" catchtap='shenpidan'>已认领单子列表</view>
+	</view>
+	<form bindsubmit="formSubmit">
+		<!-- 未认领的单子列表 -->
+		<view class='weiJiejue' wx:if="{{deptID==1}}">
+			<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:1200rpx;" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh" bindscroll="scroll" refresher-enabled="{{true}}" refresher-threshold="{{100}}" lower-threshold="50" refresher-background="#fff" refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="refresh" bindrefresherrestore="restore">
+				<view style="min-height:100%;">
+					<block wx:for="{{posts_key}}" wx:for-item="item" wx:key="viewid">
+						<view class="content" catchtap="onPostTap" data-id="{{item.ID}}">
+							<view>
+								<view>
+									<!-- <text wx:if="{{item.ReqType == 1}}">服务信息类别：问题（问题一问题一）</text>
+							<text wx:else>服务信息类别：需求（需求一需求一）</text> -->
+									<text>申请服务信息:<text style="margin-left:14rpx;">{{item.ReqTypeName}} </text> </text>
+								</view>
+								<view class="created">
+									<text>申请人: <text style="margin-left:74rpx;">{{item.UserName}}</text> </text>
+									<text style="margin-right:28px;"> > </text>
+								</view>
+								<view>
+									<text>申请时间：<text style="margin-left:38rpx;">{{item.CreateDate}}</text> </text>
+								</view>
+								<view form-type="submit" class="renling" catchtap="renling" data-name="{{item.assignUserName}}" data-type="1" data-id="{{item.ID}}"> 现在认领</view>
+							</view>
+						</view>
+					</block>
+				</view>
+			</scroll-view>
+			<!-- <view class="body-view">
+        <loading hidden="{{hidden}}" bindchange="loadingChange">
+            加载中...
+        </loading>
+    </view> -->
+		</view>
+		<!-- 已认领的单子列表 -->
+		<view class="yiJiejue" wx:if="{{deptID==2}}">
+			<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:1200rpx;" class="list" bindscrolltolower="bindDownLoadling" bindscroll="scroll" bindscrolltoupper="refreshyijiejue" refresher-enabled="{{true}}" refresher-threshold="{{100}}" lower-threshold="50" refresher-background="#fff" refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="refresh" bindrefresherrestore="restore">
+				<view style="min-height:100%;">
+					<block wx:for="{{posts_keyling}}" wx:for-item="item" wx:key="viewid">
+						<view class="content" >
+							<view>
+								<text>申请服务信息： </text>
+                <text>{{item.ReqTypeName}} </text> 
+							</view>
+							<ul>
+							<li>申请人: </li>
+               <li style="margin-left:94rpx;">{{item.UserName}}</li>
+							</ul>
+							<ul>
+								<li>申请时间：</li>
+                <li style="margin-left:55rpx;">{{item.CreateDate}}</li>
+							</ul>
+							<view>
+								<view>
+									<view wx:if="{{item.CurStatus == 1}}"></view>
+									<view wx:if="{{item.CurStatus == 2}}">解决状态: <text style="margin-left:68rpx;">已认领</text></view>
+									<view wx:if="{{item.CurStatus == 3}}">解决状态: <text style="margin-left:66rpx;">待确认</text></view>
+									<view wx:if="{{item.CurStatus == 4}}">解决状态:  <text style="margin-left:68rpx;">已解决</text></view>
+								</view>
+								<text style="margin-right:110rpx;">认领时间： <text style="margin-left:48rpx;">{{item.CreateDate}}</text></text>
+                <block wx:if="{{item.CurStatus == 4}}">
+                <view style="display:flex;flex-direction:row;justify-content:center">
+                  <button size="mini" bindtap="goJiejue_1" data-type='' data-curstatus="{{item.CurStatus}}" data-id="{{item.ID}}"><text style="font-size:24rpx">查看详情</text></button>
+                </view>
+                </block>
+                <block wx:else>
+                <view style="display:flex;flex-direction:row;justify-content:center">
+                  <button size="mini" bindtap="goJiejue_1" data-type='' data-curstatus="{{item.CurStatus}}" data-id="{{item.ID}}"><text style="font-size:24rpx">立即处理</text></button>
+                </view>
+                </block>
+							</view>
+						</view>
+					</block>
+				</view>
+			</scroll-view>
+		</view>
+	</form>
+</view>

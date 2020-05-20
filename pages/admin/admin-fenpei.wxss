@@ -1,0 +1,42 @@
+/* pages/sq-wenti/baoXiuLiebiao.wxss */
+page{
+  width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+ background-color: #fafafa;
+}
+.main{
+margin: 0 auto;
+width: 650rpx;
+height: 100%;
+display: flex;
+flex-direction: column;
+
+}
+.info-pc {
+display: flex;
+flex-direction: column;
+width: 650rpx;
+display: flex;
+background-color: #fff;
+font-size: 30rpx;
+color: #000;
+padding-left: 20rpx;
+letter-spacing: 3rpx;
+margin-top: 24rpx;
+line-height: 50rpx;
+justify-content: space-between;
+}
+
+.info input {
+width: 380rpx;
+}
+.hidden-box {
+margin-top: 10rpx;
+width: 650rpx;
+height: 164rpx;
+background-color: #f2f2f2;
+padding-top: 26rpx;
+padding-bottom: 26rpx;
+}
