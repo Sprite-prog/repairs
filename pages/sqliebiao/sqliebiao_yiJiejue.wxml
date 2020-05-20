@@ -13,7 +13,7 @@
   </view>
   <block wx:if="{{curStatus == 3}}">
     <view class="method">
-      
+
       <view class="content"> {{ReplyStar}}请您对请您对解决方案确认</view>
       <span style="margin-left:50rpx;">
         <radio-group name="wx">
@@ -24,9 +24,14 @@
 
       <view class="wenti" wx:if="{{deID==1}}">
         <view class="a-wei">
-          <span style="color:##f8c800；"> | </span> 请您填写未解决原因</view>
-        <textarea class="dissatisfied" bindconfirm="confirm" bindblur="blur"></textarea>
-        <button class='assess-submint' bindtap="submit">提交评价</button>
+           请您填写未解决原因
+        </view>
+        <textarea class="dissatisfied" bindconfirm="confirm" bindblur="blur" style="margin-bottom:25rpx"></textarea>
+        <view class="assess-button">
+          <button class='assess-submint' bindtap="submit">
+            <text>提交评价</text>
+          </button>
+        </view>
       </view>
 
       <view class="wenti" wx:if="{{deID==2}}">
@@ -46,7 +51,12 @@
 							</view> -->
               <textarea maxlength="-1" placeholder='请您对本次IT服务进行评价' placeholder-class='place-assess' bindblur="reBlur" bindconfirm="reConfirm"></textarea>
             </view>
-            <button class='assess-submint' bindtap="reSubmit">提交评价</button>
+            <view class="assess-button">
+              <button class='assess-submint' bindtap="reSubmit">
+                <text>提交评价</text>
+              </button>
+            </view>
+
           </view>
         </view>
         <!-- -----------------------------点亮星星 end-------------------- -->

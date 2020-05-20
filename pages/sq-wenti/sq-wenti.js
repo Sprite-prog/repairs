@@ -5,7 +5,7 @@ const formatTime = util.formatTime;
 var postsData = require('../../data/posts_data.js');
 Page({
   data: {
-   
+
     winWidth: 0,
     winHeight: 0,
     indicatorDots: false,
@@ -17,7 +17,7 @@ Page({
     requester: '', //申请人
     department: '', //部门
     company: '', //公司
-    phone:'',
+    phone: '',
     fujian: '', //附件
     othernew: '', //备注的其他信息
     path: '',
@@ -30,23 +30,23 @@ Page({
     get_num: 5, // 每次获取数据得数量
     array: ['1', '2', '3', '4'],
     pic_array: [ ],
-    CurStatus:0,
+    CurStatus: 0,
     hx_index: '',
     index: 0,
-    userName:'',
+    userName: '',
     reqType: 1,
     src: '',
-    shenQinginfo:{
-      UserName:'test1',
-      Tel:'',
-      ReqTypeName:'',
-      OtherRemark:'',
-      UploadFile:'123123'
+    shenQinginfo: {
+      UserName: 'test1',
+      Tel: '',
+      ReqTypeName: '',
+      OtherRemark: '',
+      UploadFile: '123123'
     },
-    picker:'',
-    intro:''
+    picker: '',
+    intro: ''
   },
-  bindChange_select: function (ev) {
+  bindChange_select: function(ev) {
     // 定义一个变量curindex 储存触发事件的数组对象的下标
     const curindex = ev.target.dataset.current
     //根据下标 改变该数组对象中的index值
@@ -56,7 +56,7 @@ Page({
       objArray: this.data.objArray
     })
   },
-  picker(event){
+  picker(event) {
     console.log(event);
     this.setData({
       picker: event.detail.pic_array_title
@@ -69,9 +69,9 @@ Page({
     })
   },
   //showNews是点击页签的事件
-  showNews: function (e) {
+  showNews: function(e) {
     const type = e.currentTarget.dataset.type
-  
+
     //绑定部门编号
     this.setData({
       deptID: type,
@@ -79,7 +79,7 @@ Page({
     // console.log('此时在哪个页签下'+type);
   },
   //我的申请列表
-  showlist: function (e) {
+  showlist: function(e) {
     var that = this;
     const data = {
       userName: 'test1',
@@ -112,16 +112,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var userName = 'test1';
+    console.log(options);
     this.showlist();
-    var reqType = options.reqType;
-    this.setData({
-      reqType:reqType
-    })
-    this.setData({
-      deptID: options.currentid
-    });
+    // var reqType = options.reqType;
+    // this.setData({
+    //   reqType: reqType
+    // })
+    // this.setData({
+    //   deptID: options.currentid
+    // });
     var self = this;
     //申请问题下拉框的接口
     wx.request({
@@ -131,16 +132,16 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success (res) {
-         console.log(res.data)
+      success(res) {
+        console.log(res.data)
         self.setData({
-          pic_array: res.data.Data,   //把json数据赋值给变量
+          pic_array: res.data.Data, //把json数据赋值给变量
         })
-       
+
       }
     })
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         // console.log(res);
         self.setData({
           winWidth: res.windowWidth
@@ -157,7 +158,7 @@ Page({
 
   },
   //表单提交
-  formSubmit: function () {
+  formSubmit: function() {
     var that = this;
     let picker = that.data.picker;
     let intro = that.data.intro;
@@ -170,115 +171,95 @@ Page({
         showCancel: false,
         success: function(res) {}
       })
-    }
-    else if(intro == ''){
+    } else if (intro == '') {
       wx.showModal({
         title: '提示',
         content: '请填写问题描述',
-        showCancel:false,
+        showCancel: false,
       })
-    }
-    else{
-    wx.showModal({
-      title: '提示',
-      content: '确定提交吗？',
-      showCancel: true,
-      success: function (res) {
-        if (res.confirm) {
-          wx.showToast({
-            title: '报修申请提交中...',
-            icon: 'loading',
-            duration: 3000,
-          });
-          that.setData({
-            deptID: that.options.currentid
-          });
-          that.setData({
-            requester: '', //申请人
-            department: '', //部门
-            company: '', //公司
-            fujian: '', //附件
-            othernew: '' //备注的其他信息
-          });
-          var shenQinginfo = {};
-          shenQinginfo.UserName = 'test1';
-          shenQinginfo.ReqType = that.data.pic_array[picker].ID == undefined ? '' : that.data.pic_array[picker].ID;
-          // shenQinginfo.CurStatus = 1;   
-          // shenQinginfo.CurStatus=params.curStatus == undefined ? '':params.curStatus;
-          shenQinginfo.UploadFile = '';
-          shenQinginfo.OtherRemark = intro == undefined ? '' : intro;
-          console.log("查看shenQinginfo" + shenQinginfo)
-          const data = {
-            //获取新闻公告来源的部门编号，用于调取API新闻列表传参使用
-            itserviceInfo: shenQinginfo
-          };
-          api.itserviceModule.submitshenQinginfo(data, (state, res) => {
-            console.log(res); 
-            if (state === 'success') {
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '确定提交吗？',
+        showCancel: true,
+        success: function(res) {
+          if (res.confirm) {
+            wx.showToast({
+              title: '报修申请提交中...',
+              icon: 'loading',
+              duration: 3000,
+            });
+            that.setData({
+              deptID: 2
+            });
+            that.setData({
+              requester: '', //申请人
+              department: '', //部门
+              company: '', //公司
+              fujian: '', //附件
+              othernew: '' //备注的其他信息
+            });
+            var shenQinginfo = {};
+            shenQinginfo.UserName = 'test1';
+            shenQinginfo.ReqType = that.data.pic_array[picker].ID == undefined ? '' : that.data.pic_array[picker].ID;
+            // shenQinginfo.CurStatus = 1;   
+            // shenQinginfo.CurStatus=params.curStatus == undefined ? '':params.curStatus;
+            shenQinginfo.UploadFile = '';
+            shenQinginfo.OtherRemark = intro == undefined ? '' : intro;
+            console.log("查看shenQinginfo" + shenQinginfo)
+            const data = {
+              //获取新闻公告来源的部门编号，用于调取API新闻列表传参使用
+              itserviceInfo: shenQinginfo
+            };
+            api.itserviceModule.submitshenQinginfo(data, (state, res) => {
               console.log(res);
-              if (res.data.StatusCode == 1000) {
-                wx.hideToast();
-                wx.showModal({
-                  title: '提示',
-                  content: '您的问题已成功提交',
-                  showCancel: false,
-                  success: function(res) {
-                    if (res.confirm) 
-                    {
-                      wx.navigateTo({
-                        url: '/page/sq-wenti/sq-wenti?deptID=2',
-                      })
-                      // that.setData({
-                      //   deptID:2
-                      // });
-                      // that.showlist();
-                    } 
-                    else if (res.cancel) {
-                      console.log('用户点击取消')
-                    }
-                  }
-                })  
+              if (state === 'success') {
+                console.log(res);
+                if (res.data.StatusCode == 1000) {
+                  that.showlist();
+                  wx.showToast({
+                    title: '您已提交成功',
+                  })
+                }
               }
-            }
-          });
+            });
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
         }
-        else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
+      })
     }
   },
   // formSubmit结束
 
-  gobaoCunimg: function () {
+  gobaoCunimg: function() {
     wx.navigateTo({
       url: '../baoCunimg/baoCunimg',
-      success: function () {},
-      fail: function () {},
-      complete: function () {}
+      success: function() {},
+      fail: function() {},
+      complete: function() {}
     })
   },
   //点击申请列表跳转到相应的详情页面
-  onPostTap: function (event) {
+  onPostTap: function(event) {
     var postId = event.currentTarget.dataset.id;
     var curStatus = event.currentTarget.dataset.curstatus;
-      wx.navigateTo({
-        url: '/pages/sqliebiao/sqliebiao_yiJiejue?id=' + postId + '&curStatus=' + curStatus,
-      })
+    wx.navigateTo({
+      url: '/pages/sqliebiao/sqliebiao_yiJiejue?id=' + postId + '&curStatus=' + curStatus,
+    })
   },
-  gocamera:function(){
+  gocamera: function() {
     wx.navigateTo({
       url: '../camera/camera',
     })
   },
-  onShow: function (options) {
+  onShow: function(options) {
     // console.log(options)
     // var that = this;
     // GetPosts_key(that); 
   },
-  onShareAppMessage: function () {},
-  loadMore: function () {
+  onShareAppMessage: function() {},
+  loadMore: function() {
     wx.showLoading({
       title: '正在加载数据',
       duration: 2000
@@ -291,7 +272,7 @@ Page({
       data: {
         qID: num,
         userName: userName,
-        
+
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -320,8 +301,8 @@ Page({
         }
 
       },
-  
-      complete: function () {
+
+      complete: function() {
         wx.hideLoading()
       }
     })

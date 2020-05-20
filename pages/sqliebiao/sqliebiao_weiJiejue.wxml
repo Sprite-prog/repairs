@@ -29,7 +29,6 @@
     <view class="tiandanbtn">
       <button form-type="submit" bindtap="gotijiao" size="mini"><text>提交</text></button>
     </view>
-
   </form>
   </block>
   

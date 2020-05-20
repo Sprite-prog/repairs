@@ -1,8 +1,8 @@
 <!--component/reply-list/reply-list.wxml-->
 <view  class="content">
-  <text class="text" wx:if="{{item.ReplyType == 0}}">{{item.CreateDate}}:问题已被IT部门的{{shenQinginfo.AssignChineseName}}处理，处理方法如下</text>
-  <text class="text" wx:else>{{item.CreateDate}}:{{item.Approver}}发出了新的问题</text>
+  <text class="tiandan-text-big_way" wx:if="{{item.ReplyType == 0}}">{{item.CreateDate}}:问题已被IT部门的{{shenQinginfo.AssignChineseName}}处理，处理方法如下</text>
+  <text class="tiandan-text-big_way" wx:else>{{item.CreateDate}}:{{item.Approver}}发出了新的问题</text>
 </view>
 <view class="content">
-  <text class="text">{{item.Approver}}:{{item.ReplyComment}}</text>
+  <text class="tiandan-text-big_way">{{item.Approver}}:{{item.ReplyComment}}</text>
 </view>

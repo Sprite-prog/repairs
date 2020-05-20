@@ -1,4 +1,3 @@
-
 var app = getApp()
 const api = require('../../utils/api.js');
 const util = require('../../utils/util.js');
@@ -8,25 +7,26 @@ Page({
   data: {
     statusBarHeight: getApp().globalData.statusBarHeight,
     // shenpi: true,
-    deptID:1,
+    deptID: 1,
     biaoti: '',
     time: '',
     state: '',
     posts_key: [],
-    posts_keyling:[],
+    posts_keyling: [],
     list_yijiejue: [],
     lists_data: [],
     offset: -1, // 偏移量
     get_num: 5, // 每次获取数据得数量
     curStatus: 1,
-    hidden:true,
-    triggered:false,
-    assignUserName:'',
-    qID:-1,
-    curStatus:1,
+    hidden: true,
+    triggered: false,
+    assignUserName: '',
+    qID: -1,
+    curStatus: 1,
+    height:''
   },
 
-  shenpidan: function (e) {
+  shenpidan: function(e) {
     const type = e.currentTarget.dataset.type
     console.log(e.currentTarget.dataset);
     console.log(type);
@@ -34,16 +34,16 @@ Page({
     this.setData({
       deptID: type,
     });
-    this.showlist(type,-1);
+    this.showlist(type, -1);
   },
   //未认领申请列表
-  showlist: function(status,qID) {
+  showlist: function(status, qID) {
     var that = this;
     const data = {
       curStatus: status,
       qID: qID,
       userName: 'bird.han',
-    }; 
+    };
     //调取申请列表的api   遍历数组返回相应的格式的时间
     api.itserviceModule.itsqlists(data, (state, res) => {
       if (state === 'success') {
@@ -56,8 +56,7 @@ Page({
             offset: count
           })
           console.log(count)
-          if(newList.length>0)
-          {
+          if (newList.length > 0) {
             newList.map((trip) => {
               // console.log(trip);
               const item = trip;
@@ -67,9 +66,7 @@ Page({
             that.setData({
               posts_key: newList
             });
-          }
-          else
-          {
+          } else {
             that.setData({
               posts_key: []
             });
@@ -78,8 +75,8 @@ Page({
       }
     });
   },
- //已经认领申请列表
-  showlistling: function (stateus, qID) {
+  //已经认领申请列表
+  showlistling: function(stateus, qID) {
     var that = this;
     const data = {
       curStatus: stateus,
@@ -108,8 +105,7 @@ Page({
             that.setData({
               posts_keyling: newListling
             });
-          }
-          else {
+          } else {
             that.setData({
               posts_keyling: []
             });
@@ -121,79 +117,81 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  renling:function(e){
+  renling: function(e) {
     const type = e.currentTarget.dataset.type
     const id = e.currentTarget.dataset.id
     // const assignUserName = e.currentTarget.dataset.name
     const assignUserName = 'bird.han';
-    console.log(assignUserName)
+    console.log(assignUserName);
+    const that = this;
     //绑定部门编号
     this.setData({
       deptID: type,
     });
-  wx.request({
-    url: 'https://wxoaminiapps-qa.lshmnc.com.cn/api/ITService/AssignApplicationInfo', 
-    data: {
-      assignUserName: assignUserName,
-      appID : id
-    },
-    header: {
-      'content-type': 'application/json' // 默认值
-    },
-    success (res) {
-      console.log(res.data)
-    }
-  })
+    wx.showModal({
+      title: '提示',
+      content: '确定认领这条服务申请吗？',
+      success(res) {
+        if (res.confirm) {
+          wx.request({
+            url: 'https://wxoaminiapps-qa.lshmnc.com.cn/api/ITService/AssignApplicationInfo',
+            data: {
+              assignUserName: assignUserName,
+              appID: id
+            },
+            header: {
+              'content-type': 'application/json' // 默认值
+            },
+            success(res) {
+              console.log(res.data);
+              that.showlistling(1, -1);
+              wx.showToast({
+                title: '您已认领成功',
+                icon: 'success',
+                duration: 3000,
+              });
+              that.setData({
+                deptID:2
+              })
+            }
+          })
 
-
-  // wx.showToast({
-  //   title: '成功',
-  //   icon: 'success',
-  //   duration: 2000
-  // })
-  wx.showModal({
-    title: '提示',
-    content: '确定认领这条服务申请吗？',
-    success (res) {
-      if (res.confirm) {
-        wx.showToast({
-          title: '您已认领成功',
-          icon: 'success',
-          duration: 3000,
-        });
-        wx.navigateTo({
-          url: '../sqliebiao/sqliebiao?typeid=2',
-        })
-        console.log(type);
-
-      } else if (res.cancel) {
-        console.log('用户点击取消')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
       }
-     
-    }
-  })
+    })
   },
-  onLoad: function(options) { 
-    this.showlist(1,-1);
-    this.showlistling(1,-1)
+  onLoad: function(options) {
+    this.showlist(1, -1);
+    this.showlistling(1, -1)
     // var type = options.typeid;
     // this.setData({
     //   deptID: options.typeid
     // });
     // console.log(options);
+    const that = this;
+    wx.getSystemInfo({
+      success: function(res) {
+        console.log(res);
+        const height = res.windowHeight;
+          that.setData({
+            height:height
+          })
+      },
+    })
   },
-  refresh:function() {
+  refresh: function() {
     wx.showLoading({
       title: '数据刷新中',
       duration: 2000,
-      mask:true
+      mask: true
     })　　
     setTimeout(() => {
-      
       wx.hideLoading()
-    }, 2000)
-    　wx.stopPullDownRefresh();
-    
+    }, 2000)　
+    wx.stopPullDownRefresh();
+
   },
   refresh() {
     if (this._freshing) return
@@ -220,7 +218,7 @@ Page({
     var num = this.data.offset;
     var type = this.data.deptID;
     console.log(type);
-  
+
     // this.setData({
     //   deptID:type
     // });
@@ -263,7 +261,7 @@ Page({
       }
     })
   },
-//普通运维人员已经认领单子列表
+  //普通运维人员已经认领单子列表
   bindDownLoadling: function() {
     wx.showLoading({
       title: '正在加载数据',
@@ -274,14 +272,14 @@ Page({
     var num = this.data.offset;
     var type = this.data.deptID;
     this.setData({
-      deptID:type
+      deptID: type
     });
     console.log(num);
     wx.request({
       url: 'https://wxoaminiapps-qa.lshmnc.com.cn/api/ITService/ShowApplicationListByHelpDesk',
       data: {
         qID: num,
-        userName:'bird.han'
+        userName: 'bird.han'
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -290,7 +288,7 @@ Page({
         console.log(res)
         var newListling = res.data.Data;
         newListling.map((trip) => {
-          console.log('这trip显示是'+trip);
+          console.log('这trip显示是' + trip);
           const item = trip;
           item.CreateDate = formatTime(new Date(item.CreateDate));
           return item;
@@ -326,19 +324,22 @@ Page({
     })
   },
   //go已经认领页面详情
-  goJiejue_1:function(event) {
+  goJiejue_1: function(event) {
     var postId = event.currentTarget.dataset.id;
     var curStatus = event.currentTarget.dataset.curstatus;
     console.log("on post id is" + postId)
     console.log("状态是啥？？" + event.currentTarget.dataset.curstatus)
-    
-    
-      
-        wx.navigateTo({
-          url: '/pages/sqliebiao/sqliebiao_weiJiejue?id=' + postId + '&curStatus=' + curStatus,
-        })
-      
-     
-    
+
+
+
+    wx.navigateTo({
+      url: '/pages/sqliebiao/sqliebiao_weiJiejue?id=' + postId + '&curStatus=' + curStatus,
+    })
+
+
+
   },
+  onPullDownRefresh(){
+    this.showlistling(1,-1);
+  }
 })

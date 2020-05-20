@@ -7,7 +7,7 @@
 	<form bindsubmit="formSubmit">
 		<!-- 未认领的单子列表 -->
 		<view class='weiJiejue' wx:if="{{deptID==1}}">
-			<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:1200rpx;" class="list" bindscrolltolower="bindDownLoad"  bindscrolltoupper="refresh"  refresher-enabled="{{true}}" refresher-threshold="{{100}}" lower-threshold="50" refresher-background="#fff" refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="refresh" bindrefresherrestore="restore">
+			<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{height*2-100}}rpx;" class="list" bindscrolltolower="bindDownLoad"  bindscrolltoupper="refresh"  refresher-enabled="{{true}}" refresher-threshold="{{100}}" lower-threshold="50" refresher-background="#fff" refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="refresh" bindrefresherrestore="restore">
 				<view style="min-height:100%;">
 					<block wx:for="{{posts_key}}" wx:for-item="item" wx:key="viewid">
 						<view class="content" catchtap="onPostTap" data-id="{{item.ID}}">
@@ -38,11 +38,11 @@
 		</view>
 		<!-- 已认领的单子列表 -->
 		<view class="yiJiejue" wx:if="{{deptID==2}}">
-			<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:1200rpx;" class="list" bindscrolltolower="bindDownLoadling"  bindscrolltoupper="refreshyijiejue" refresher-enabled="{{true}}" refresher-threshold="{{100}}" lower-threshold="50" refresher-background="#fff" refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="refresh" bindrefresherrestore="restore">
+			<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{height*2-100}}rpx;" class="list" bindscrolltolower="bindDownLoadling"  bindscrolltoupper="refreshyijiejue" refresher-enabled="{{true}}" refresher-threshold="{{100}}" lower-threshold="50" refresher-background="#fff" refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="refresh" bindrefresherrestore="restore">
 				<view style="min-height:100%;">
 					<block wx:for="{{posts_keyling}}" wx:for-item="item" wx:key="viewid">
 						<view class="content" >
-							<view>
+							<view style="margin-top:25rpx;">
 								<text>申请服务信息： </text>
                 <text>{{item.ReqTypeName}} </text> 
 							</view>
@@ -57,7 +57,7 @@
 							<view>
 								<view>
 									<view wx:if="{{item.CurStatus == 1}}"></view>
-									<view wx:if="{{item.CurStatus == 2}}">解决状态: <text style="margin-left:68rpx;">已认领</text></view>
+									<view wx:if="{{item.CurStatus == 2}}">解决状态: <text style="margin-left:68rpx;">已认领(处理中)</text></view>
 									<view wx:if="{{item.CurStatus == 3}}">解决状态: <text style="margin-left:66rpx;">待确认</text></view>
 									<view wx:if="{{item.CurStatus == 4}}">解决状态:  <text style="margin-left:68rpx;">已解决</text></view>
 								</view>
@@ -68,8 +68,8 @@
                 </view>
                 </block>
                 <block wx:else>
-                <view style="display:flex;flex-direction:row;justify-content:center">
-                  <button size="mini" bindtap="goJiejue_1" data-type='' data-curstatus="{{item.CurStatus}}" data-id="{{item.ID}}"><text style="font-size:24rpx">立即处理</text></button>
+                <view class="button">
+                  <button size="mini" bindtap="goJiejue_1" data-type='' data-curstatus="{{item.CurStatus}}" data-id="{{item.ID}}" style="magin-left:-"><text style="font-size:24rpx">立即处理</text></button>
                 </view>
                 </block>
 							</view>

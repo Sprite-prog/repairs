@@ -137,8 +137,8 @@ Page({
           wx.showToast({
             title: '提交成功',
           })
-          wx.navigateTo({
-            url: '../sqliebiao/sqliebiao?typeid=2',
+          wx.navigateBack({
+            
           })
         }
 

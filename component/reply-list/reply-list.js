@@ -9,7 +9,7 @@ Component({
       value:{},
     }
   },
-  externalClasses: ["content","text"],
+
 
   /**
    * 组件的初始数据

@@ -60,11 +60,10 @@
 }
 
 .content {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 2.08rem;
+  padding-left: 60rpx;
   line-height: 1.88rem;
   margin-top: 1.41rem;
   background-color: #fff;
@@ -80,7 +79,13 @@
   font-size: 25rpx;
 
 }
-
+.button{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  width:630rpx;
+  margin:15rpx 0 40rpx 0;
+}
 button {
   width: 50rpx;
   height: 70rpx;

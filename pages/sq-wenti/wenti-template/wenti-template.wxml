@@ -6,11 +6,11 @@
     </view>
     <view class="created">
       <text>报修时间：<text style="margin-left:50rpx;">{{CreateDate}}</text></text>
-      <text style="margin-right:14rpx;"> > </text>
+      <mp-icon icon="arrow" size="{{12}}" style="margin-right:14rpx" />
     </view>
     <view>
       <text wx:if="{{CurStatus == 1}}">解决状态: <text style="margin-left:60rpx;">未认领</text></text>
-      <text wx:if="{{CurStatus == 2}}">解决状态: <text style="margin-left:60rpx;">处理中</text></text>
+      <text wx:if="{{CurStatus == 2}}">解决状态: <text style="margin-left:60rpx;">已认领（处理中）</text></text>
       <text wx:if="{{CurStatus == 3}}">解决状态: <text style="margin-left:60rpx;">待确认</text></text>
       <text wx:if="{{CurStatus == 4}}">解决状态: <text style="margin-left:60rpx;">已解决</text></text>
     </view>
